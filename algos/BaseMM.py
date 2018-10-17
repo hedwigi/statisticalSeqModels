@@ -21,11 +21,12 @@ class BaseMM(object):
         iter = PreprocessUtil.file_iter(pathin)
         sent_conll = iter.__next__()
         n = 0
+        st = time.clock()
         with open(pathout, "w") as fout:
             while sent_conll:
                 n += 1
                 if n % 50 == 0:
-                    print(n)
+                    print("-> predict %d: %f s in total" % (n, (time.clock() - st)))
                 tok_list = []
                 for tok_conll in sent_conll:
                     tok, _, true_state = tok_conll.strip().split("\t")

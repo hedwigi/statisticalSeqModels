@@ -21,8 +21,13 @@ if __name__ == "__main__":
     else:
         raise ValueError("no model named %s" % model)
 
+    st = time.clock()
     model.train(file_train)
+    print("training: %f s" % (time.clock() - st))
+
+    st = time.clock()
     model.predict_file(file_test, pathout)
+    print("predict: %f s" % (time.clock() - st))
 
     # Generate sequence with hmm
     if model == "hmm":
