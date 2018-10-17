@@ -1,5 +1,10 @@
 # A comparison of HMM/MEMM/CRF
 
+## Environment
+python 3
+nltk
+numpy
+
 ## Reproducing results
 
 - run main.py to get predicted results of HMM or MEMM
